@@ -80,7 +80,6 @@ ai
 
 # --- Project-Specific Documents ---
 # ? Ignored by default. Remove this if you want to check in AI generated docs
-ai
 .input
-.second-brain-template
+
 
