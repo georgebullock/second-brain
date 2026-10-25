@@ -22,7 +22,7 @@ Use `.agents/skills/` for repeatable workflows and deeper procedural guidance.
 
 Good examples:
 
-- Ingest a raw note.
+- Ingest an input document.
 - Synthesize a topic across the vault.
 - Maintain the wiki.
 - Answer a question using curated pages first.

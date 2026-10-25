@@ -1,6 +1,6 @@
 # Wiki Schema
 
-This repository is a second brain maintained from raw notes, exports, documents,
+This repository is a second brain maintained from input documents, exports,
 conversations, and other source material. The goal is not to perfectly file
 everything on the first pass. The goal is to preserve sources, then gradually
 curate them into reliable, useful pages that compound over time.
@@ -10,9 +10,9 @@ wikilinks, backlinks, aliases, tags, and a useful graph.
 
 ## Layers
 
-- `raw/unprocessed/` contains newly added source material that has not been reviewed.
-- `raw/processed/` contains original source material after review.
-- `wiki/` contains curated pages written from raw material and direct knowledge.
+- `input/unprocessed/` contains newly added source material awaiting review.
+- `input/processed/` contains reviewed source documents and canonical evidence.
+- `wiki/` contains curated pages synthesized from processed input sources.
 - `schema/` contains maintenance instructions, templates, category definitions, and workflow notes.
 - `.agents/` contains agent-facing automation definitions, rules, and task workflows.
 
@@ -24,45 +24,29 @@ it should improve the maintained artifact.
 
 Examples of compounding work:
 
-- a raw source becomes one or more curated pages
+- an input source contributes to one or more curated pages
 - a good answer becomes a new section or page
 - a contradiction becomes an `Open Questions` item
 - a repeated search becomes an index entry or hub page
 - a loose note becomes a link to an existing person, place, project, decision, or concept
 - a maintenance pass removes duplication and improves navigation
 
-## Curated Pages
+## Curated Pages And Evidence
 
-Curated pages should be short, clear, and useful. They should not copy every raw
-detail unless the detail is durable and worth finding again.
+Curated pages should be concise, readable, and useful for both human search and
+LLM retrieval. Every factual claim must link directly to its supporting document
+in `input/processed/`. A Wiki summary is not a substitute for the canonical
+source. Compare each claim with its source during ingestion.
 
-Use this default frontmatter:
+The page structure and frontmatter are being redesigned. Do not use the legacy
+shape in `schema/page-template.md` until the replacement is agreed.
 
-```yaml
----
-aliases: []
-tags: []
-status: draft
-sources: []
----
-```
+## Input Sources
 
-Use `status` values:
-
-- `draft` for newly synthesized pages that may need review.
-- `stable` for pages that feel reliable.
-- `stale` for pages likely outdated.
-
-Use tags sparingly for cross-cutting qualities, not for the main category.
-
-## Raw Material
-
-Raw material can be messy, duplicated, emotional, generated, obsolete, or unclear.
-That is acceptable. Preserve it as evidence.
-
-Do not rewrite raw notes for style or category fit. If cleanup, summarization,
-deduplication, or synthesis is useful, create or update a curated page in `wiki/`,
-move the reviewed source to `raw/processed/`, and cite it from the curated page.
+Input documents may be messy, emotional, generated, obsolete, or unclear.
+Preserve the original contents and keep one copy of each source in this project.
+Do not rewrite sources for style or category fit. Create or update curated
+pages in `wiki/` when useful.
 
 ## Cross-References
 
@@ -74,7 +58,7 @@ Use cross-references when:
 - a topic appears in several contexts
 - a page summarizes or updates an older page
 - a page depends on a person, place, project, decision, routine, or source described elsewhere
-- a raw note should inform multiple curated pages
+- an input source should inform multiple curated pages
 
 Prefer links over duplication:
 
@@ -88,25 +72,14 @@ Use aliases when the displayed text should differ:
 See also: [[Related Page|display text]]
 ```
 
-For pages with several related notes, add a short section near the bottom:
-
-```markdown
-## Related
-
-- [[Related Page]] - why it matters here.
-- [[Another Page]] - how it connects.
-```
+The exact placement of related links is part of the page format being redesigned.
 
 ## Index
 
-`wiki/index.md` is the content-oriented catalog of the curated wiki. Update it
-when curated pages are created, renamed, merged, or retired.
-
-The index should list useful hubs and important pages. It does not need to list
-every tiny note unless that is useful for the vault.
+The current schema proposes `wiki/index.md` as a content-oriented catalog.
+Whether v0 needs an index and when to update it remain open; see `DECISIONS.md`.
 
 ## Log
 
-`wiki/log.md` records meaningful curation and maintenance work. It gives future
-agents a quick way to see how the vault has evolved without turning `AGENTS.md`
-into a change history.
+The current schema proposes `wiki/log.md` for curation history. Whether v0
+needs a log remains open; see `DECISIONS.md`.

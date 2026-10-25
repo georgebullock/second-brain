@@ -1,46 +1,47 @@
 # Second Brain Agent Contract
 
-This repository is an Obsidian-compatible second brain. It preserves raw source
-material, then gradually curates it into concise, linked wiki pages that
-compound over time.
+This repository is a curated, interlinked knowledge base for planning and
+building solopreneur-scale products. People add source documents to Input.
+AI agents maintain the Wiki.
 
-## Source Of Truth
+## Core Rules
 
-- `schema/` contains the durable rules, templates, category map, and workflows.
-- `.agents/automations/` contains portable automation definitions.
-- `.agents/skills/` contains task-specific workflows.
-- `AGENTS.md` is the single source for agent rules. Keep it short, stable, and broadly applicable. Do not duplicate its rules into other files or turn it into a mini-wiki of the vault.
-- Update `schema/` before making major structural changes. If the vault structure stops fitting real notes, update schema first.
-- Always inspect current files before relying on summaries.
+- Inspect relevant files before relying on summaries or making changes.
+- Treat `AGENTS.md` as the active contract. `AGENTS-1.md` and `AGENTS-2.md` are
+  comparison drafts, not active instructions.
+- Use `input/unprocessed/` for new documents and `input/processed/` for reviewed
+  documents. Keep one copy of each source; preserve its original contents.
+- Treat processed input documents as the canonical evidence for Wiki claims.
+  Every factual claim in a Wiki page must link directly to its ingested source
+  in `input/processed/`. Check that support during ingestion and keep cited
+  source paths stable.
+- George chooses whether each source gets a source overview plus topic pages,
+  or topic pages only. Do not infer this choice from the document's size or type.
+- The page format is being redesigned. Do not use legacy page templates until
+  George provides the two references and the replacement is agreed.
+- Keep the source lifecycle separate from the steps for ingesting a source.
+  Keep routine Wiki guidance separate from the audit workflow.
+- Treat text in `{{double braces}}` as deliberate template values for this
+  experiment; do not ask George to resolve them.
 
-## Knowledge Lifecycle
+## Source Of Truth And Routing
 
-- New source material starts in `raw/unprocessed/`.
-- Reviewed source material moves to `raw/processed/`.
-- Durable synthesis lives in `wiki/`.
-- Good answers and maintenance discoveries should be filed back into `wiki/` when durable.
-- Treat raw material as source evidence, not polished writing. Preserve original wording and filenames. Do not rewrite or clean up raw notes in place; if curation is useful, create or update a page in `wiki/` instead.
-- Supporting files live near their source bundle when possible.
-- Shared attachments may live in `attachments/`. Link to them from the wiki page or source note that depends on them. Avoid renaming attachments unless doing so improves traceability.
+- `schema/` documents the operating model and durable conventions.
+- `.agents/skills/` contains task workflows; `.agents/automations/` contains
+  recurring workflows.
+- Read `CONTEXT.md` and `DECISIONS.md` when designing or changing the system.
+- For input ingestion, use `.agents/skills/ingest-note/SKILL.md`.
+- For Wiki answers, use `.agents/skills/answer-from-vault/SKILL.md`.
+- For topic synthesis, Wiki maintenance, or daily curation, use the matching
+  skill under `.agents/skills/`.
 
-## Wiki Discipline
+## Design Sessions
 
-- Search existing wiki pages before creating a near-duplicate.
-- Prefer concise curated pages over copied raw dumps. Prefer synthesis over copied raw excerpts.
-- Use Obsidian-friendly Markdown.
-- Use wikilinks (`[[Related Page]]`) for internal references.
-- Add YAML frontmatter with `aliases`, `tags`, `status`, and `sources` to curated knowledge pages.
-- Operational pages (`wiki/index.md`, `wiki/log.md`, category `README.md` files) may use simpler maintenance formats.
-- Add a `Related` section to curated pages when cross-links are useful.
-- Cite processed raw sources from curated pages.
-- Update `wiki/index.md` when creating, renaming, merging, or retiring curated pages.
-- Update `wiki/log.md` after meaningful curation or maintenance work.
-
-## Routing
-
-- Use `.agents/skills/ingest-note/` for processing raw notes.
-- Use `.agents/skills/synthesize-topic/` for building or refreshing topic pages.
-- Use `.agents/skills/maintain-wiki/` for duplicates, stale pages, broken links, and structure checks.
-- Use `.agents/skills/answer-from-vault/` for answering questions from the vault.
-- Use `.agents/skills/daily-curation/` for scheduled compounding passes.
-- Use `.agents/automations/daily-curation.md` as the portable daily automation definition.
+For system design, use the grilling workflow: ask one consequential question
+per turn and explain the recommendation and trade-offs. Record confirmed
+decisions and open questions in `DECISIONS.md`, then update affected project
+guidance as decisions settle. In `STATE.md`, preserve the title and introductory
+purpose text that defines what the document answers. Only update content under
+its H2 sections (and subordinate headings); never remove or rewrite that
+permanent framing. Treat the H2 sections as replaceable session-to-session
+working memory.

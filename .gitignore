@@ -1,8 +1,86 @@
+# --- macOS Specific ---
 .DS_Store
-*.tmp
-*.bak
-*.swp
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# --- Dependencies ---
 node_modules/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Package Manager Lockfiles ---
+# Keep the one you USE, ignore the ones you DON'T (optional)
+# If you are strictly pnpm, you might want to ignore these:
+package-lock.json
+yarn.lock
+
+# --- Vite / Frontend Build ---
+dist/
+dist-ssr/
+*.local
+.vite/
+
+# VitePress specific
+.vitepress/dist
+.vitepress/cache
+
+# --- Backend / Automation / Node ---
+build/
+out/
+lib/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# --- Environment & Secrets ---
 .env
 .env.*
+!.env.example
+*.pem
+*.key
+
+# --- IDE & Editors ---
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.sw?
+*.suo
+
+# --- Testing & Monorepo Tools ---
+coverage/
+.nyc_output
+.turbo/
+.nx/
+.eslintcache
+
+# --- AI-Generated Documents ---
+# ? Ignored by default. Remove this if you want to check in AI generated docs
+ai
+
+# --- Project-Specific Documents ---
+# ? Ignored by default. Remove this if you want to check in AI generated docs
+ai
+.input
+.second-brain-template
 

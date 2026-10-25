@@ -14,7 +14,7 @@ Run once per day to keep the second brain alive:
 - record what changed
 
 The automation should make the vault more useful over time, even when the user
-only drops raw material into the inbox.
+only adds input documents to the intake area.
 
 ## Suggested Schedule
 
@@ -27,8 +27,8 @@ Run from the vault root.
 
 Primary paths:
 
-- `raw/unprocessed/`
-- `raw/processed/`
+- `input/unprocessed/`
+- `input/processed/`
 - `wiki/`
 - `schema/`
 - `.agents/`
@@ -39,9 +39,9 @@ Primary paths:
 Run the daily curation pass for this second brain.
 
 Use AGENTS.md as the root contract. Use .agents/skills/daily-curation/SKILL.md
-for the workflow. Preserve raw sources, curate durable knowledge into wiki pages,
-update wiki/index.md when navigation changes, and append meaningful work to
-wiki/log.md.
+for the workflow. Preserve source documents and curate durable knowledge into
+wiki pages. Update `wiki/index.md` and append to `wiki/log.md` only if they are
+part of the current vault design.
 
 Be conservative with broad reorganizations. If the category map no longer fits,
 add a recommendation to wiki/log.md or an Open Questions section rather than
@@ -52,14 +52,14 @@ moving large parts of the vault without explicit approval.
 
 The automation should leave one of these outcomes:
 
-- curated pages updated and sources moved from `raw/unprocessed/` to `raw/processed/`
+- curated pages updated and reviewed inputs recorded under `input/processed/`
 - maintenance improvements made to links, index entries, or stale pages
-- a `wiki/log.md` entry explaining what was checked and what remains open
+- a `wiki/log.md` entry explaining what was checked and what remains open, if the log is part of the current vault design
 - no file changes when there is truly nothing useful to do
 
 ## Safety
 
-- Do not rewrite raw sources.
+- Do not rewrite source documents.
 - Do not delete source material.
 - Do not perform large taxonomy changes without explicit approval.
 - Do not create pages from weak connections just to look busy.

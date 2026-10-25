@@ -1,4 +1,4 @@
-# Unprocessed Raw Material
+# Unprocessed Input
 
 Put new source material here before ingest.
 
@@ -12,5 +12,5 @@ Examples:
 - copied references
 - screenshots or attachment bundles
 
-Raw material does not need to be clean.
+Input documents do not need to be clean.
 

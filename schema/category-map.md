@@ -5,7 +5,7 @@ not a universal theory of knowledge.
 
 The category map is the most replaceable part of the template. A research vault,
 student vault, wedding vault, household vault, company vault, and creative vault
-should all use different categories. Keep the raw-to-wiki lifecycle and agent
+should all use different categories. Keep the input-to-wiki lifecycle and agent
 transport mechanism stable; adapt the taxonomy aggressively.
 
 ## Default Curated Folders

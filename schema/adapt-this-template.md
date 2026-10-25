@@ -18,12 +18,12 @@ transport mechanism and adapt the domain model.
 
 ## What Should Stay Stable
 
-- `AGENTS.md` stays short and carries the full agent rule set.
+- `AGENTS.md` stays short and carries only rules that apply across tasks.
 - `.agents/skills/` holds repeatable workflows.
 - `.agents/automations/` holds recurring workflow definitions.
 - `schema/` is the human-readable operating model.
-- `raw/unprocessed/` is the inbox.
-- `raw/processed/` is the reviewed source archive.
+- `input/unprocessed/` is the intake area.
+- `input/processed/` holds reviewed source documents.
 - `wiki/` is the maintained synthesis layer.
 - `wiki/index.md` is the navigation map.
 - `wiki/log.md` records meaningful curation.
