@@ -79,7 +79,7 @@ coverage/
 ai
 
 # --- Project-Specific Documents ---
-# ? Ignored by default. Remove this if you want to check in AI generated docs
-.input
+# Source files stay local and are archived outside Git.
+/input/
 
 

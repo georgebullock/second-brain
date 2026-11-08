@@ -1,20 +1,22 @@
 # Wiki Schema
 
-This repository is a second brain maintained from input documents, exports,
-conversations, and other source material. The goal is not to perfectly file
-everything on the first pass. The goal is to preserve sources, then gradually
-curate them into reliable, useful pages that compound over time.
+This repository turns local source files into cited, reusable Wiki knowledge.
+The Wiki is organized by topic. Each page uses one of two standard formats so
+readers can understand the reasoning, practical method, evidence, and
+uncertainty.
 
 The vault is intended to work well in Obsidian. Optimize for readable filenames,
 wikilinks, backlinks, aliases, tags, and a useful graph.
 
 ## Layers
 
-- `input/unprocessed/` contains newly added source material awaiting review.
-- `input/processed/` contains reviewed source documents and canonical evidence.
-- `wiki/` contains curated pages synthesized from processed input sources.
-- `schema/` contains maintenance instructions, templates, category definitions, and workflow notes.
-- `.agents/` contains agent-facing automation definitions, rules, and task workflows.
+- `input/unprocessed/` contains newly added local source material awaiting review; source files are excluded from Git.
+- `input/processed/` contains reviewed local source documents and canonical evidence; source files are excluded from Git.
+- `wiki/` contains curated topic pages synthesized from processed input sources.
+- `templates/` contains the Topic Analysis and Field Guide formats.
+- `schema/` contains the durable operating rules and workflows.
+- `prompts/` contains user-facing workflow launchers.
+- `.agents/skills/` contains the procedures run by those launchers.
 
 ## Compounding Principle
 
@@ -26,41 +28,59 @@ Examples of compounding work:
 
 - an input source contributes to one or more curated pages
 - a good answer becomes a new section or page
-- a contradiction becomes an `Open Questions` item
-- a repeated search becomes an index entry or hub page
+- a disagreement appears in the relevant analysis sections and in `Open Questions` when unresolved
+- a repeated search reveals a topic that needs a clearer or linked page
 - a loose note becomes a link to an existing person, place, project, decision, or concept
 - a maintenance pass removes duplication and improves navigation
 
 ## Curated Pages And Evidence
 
-Curated pages should be concise, readable, and useful for both human search and
-LLM retrieval. Every factual claim must link directly to its supporting document
-in `input/processed/`. A Wiki summary is not a substitute for the canonical
-source. Compare each claim with its source during ingestion.
+Topic Analysis pages use the Paul-Elder Elements of Thought to explain ideas,
+reasoning, and differing perspectives. Field Guides capture source-supported
+methods and decision rules. Create both when a topic has useful analysis and an
+actionable method; link the pages. Keep complexity, tensions, contradictions,
+and unknowns visible. Do not imply certainty beyond the evidence.
 
-The page structure and frontmatter are being redesigned. Do not use the legacy
-shape in `schema/page-template.md` until the replacement is agreed.
+Every factual claim and prescribed step must link directly to its supporting
+document in `input/processed/`. A Wiki page is a synthesis, not a substitute for
+the source. Compare each claim with the source during ingestion.
+
+Use `templates/wiki-entry.md` for Topic Analysis pages and
+`templates/field-guide.md` for procedural guidance. Each template has the same
+source metadata and citation requirements.
 
 ## Input Sources
 
 Input documents may be messy, emotional, generated, obsolete, or unclear.
-Preserve the original contents and keep one copy of each source in this project.
-Do not rewrite sources for style or category fit. Create or update curated
-pages in `wiki/` when useful.
+Preserve the original contents and keep one local copy of each source in
+`input/`. Maintain a separate archive manually for now. Do not rewrite sources
+for style or category fit. Create or update curated pages in `wiki/` when
+useful. Source files are excluded from Git, so a fresh clone will not include
+the files behind Wiki citations. The tracked README files only explain the
+input folders.
 
-## Cross-References
+## Relationships And Cross-References
 
-The wiki should become interlinked over time.
+The Wiki is a conceptual graph, not only a collection of pages grouped by
+subject. Look for supported relationships across topics and disciplines so
+readers can follow ideas between fields and build a lattice of knowledge.
 
-Use cross-references when:
+Useful relationships include:
 
-- a source affects more than one topic
-- a topic appears in several contexts
-- a page summarizes or updates an older page
-- a page depends on a person, place, project, decision, routine, or source described elsewhere
-- an input source should inform multiple curated pages
+- A shared mechanism or pattern appears in different fields.
+- One model offers a useful analogy for another, with its limits made clear.
+- One topic complements, qualifies, applies, or challenges another.
+- A source or concept affects multiple topics, or a page depends on a person,
+  place, project, decision, routine, or source described elsewhere.
 
-Prefer links over duplication:
+Create a cross-reference only when it helps explain or use the connected ideas.
+Shared words, broad category membership, or an obvious adjacency alone do not
+justify a link. Explain the relationship in plain language. If the connection
+is a cross-source synthesis rather than a link stated by an author, label it as
+synthesis and cite evidence from both processed sources. State where an analogy
+stops applying. Do not force a link when the sources do not support one.
+
+Use Obsidian links so readers can move between pages and inspect backlinks:
 
 ```markdown
 See also: [[Related Page]]
@@ -72,14 +92,6 @@ Use aliases when the displayed text should differ:
 See also: [[Related Page|display text]]
 ```
 
-The exact placement of related links is part of the page format being redesigned.
-
-## Index
-
-The current schema proposes `wiki/index.md` as a content-oriented catalog.
-Whether v0 needs an index and when to update it remain open; see `DECISIONS.md`.
-
-## Log
-
-The current schema proposes `wiki/log.md` for curation history. Whether v0
-needs a log remains open; see `DECISIONS.md`.
+The paired Topic Analysis and Field Guide link to each other when both exist.
+During ingestion, complete the relationship search in
+`schema/ingest-workflow.md`; the paired-page link does not replace that search.

@@ -1,28 +1,18 @@
 # Ingest Note
 
-Use this skill when processing new input documents, transcripts,
-clips, exports, or conversation summaries.
+Use this skill to run the ingestion workflow. The normal user entry point is
+`prompts/start-ingestion.md`.
 
-## Workflow
+Read and follow `schema/ingest-workflow.md` for batch scope, topic grouping,
+page-type routing, relationship discovery, citations, and source handling.
+Process every readable file in `input/unprocessed/` as one run. Do not ask
+George to restate the workflow or select a format. If a source cannot be read
+reliably, leave it unprocessed and report why.
 
-1. Inspect `input/unprocessed/`.
-2. Read the relevant source material.
-3. Follow the curation mode George chose for this source: create a source overview plus topic pages, or topic pages only. If no choice is recorded, ask; do not infer the mode.
-4. Search `wiki/` for related pages, duplicate titles, people, places, projects, and recurring topics.
-5. Create a new curated page only if no suitable page exists.
-6. Prefer updating an existing page over creating a near-duplicate.
-7. Ensure the reviewed source is recorded in `input/processed/` using the approved lifecycle. Check `DECISIONS.md` for current lifecycle rules. Never make a duplicate source copy.
-8. Link every factual claim directly to the processed source document. Verify each claim against that document during ingestion.
-9. Add wikilinks to related pages where useful.
-10. Update `wiki/index.md` if a curated page was created, renamed, merged, or became important.
-11. Complete the ingest without pausing for separate Wiki-page approval. George reviews the resulting repository changes and can revert them and provide feedback.
-
-## Output
-
-Summarize:
-
-- Which input files were processed.
-- Which wiki pages were created or updated.
-- Which sources were recorded as processed.
-- Any open questions or uncertain categorization.
-
+Treat relationship discovery as a required, high-priority phase. Search across
+Wiki topics and disciplines; do not stop at obvious neighbors. Add only useful,
+source-supported links, explain the connection, and label cross-source
+synthesis. At completion, report each input, topic, page type created or updated
+and why, source processing status, concepts and candidate pages used in the
+relationship search, links added or why no supported links were found, and
+unresolved questions.
